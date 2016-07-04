@@ -1,0 +1,14 @@
+//Mon Jul  4 05:24:48 PDT 2016
+
+//This file defines utilities used by js 
+
+const util = {}; 
+
+//define a helpe function for creating a logger
+function getLogger(tag,msg) { 
+    const customLog = function(msg){
+	console.log("[" + tag + "]~> " + msg);
+    }
+    const logger = { log : customLog } 
+} 
+
