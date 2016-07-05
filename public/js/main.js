@@ -10,7 +10,9 @@ Thus, several objects have been loaded into global js memory that will be used h
 For more info and to see a list of these objects (such as util), refer to fileLoader.js 
 */
 
+
 util.log("main", "Program initialized") 
+recognition.start() 
 
 
 
