@@ -140,14 +140,9 @@ recognition.speak = function ({msg})
 }
 
 
-/*now we create abstraction around it that can que speech requests 
-and manage the recognition object as well */ 
-
-
-
 
 /*
-call speech voices once to change default voice
+call speech voices once to change default voice 
 */
 recognition.initVoices = function() {
 //    this.log("Preparing voice")
