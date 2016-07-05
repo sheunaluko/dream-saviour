@@ -4,3 +4,8 @@ File for walking you through the dream recording
 */
 
 
+this.dreamHelper = {
+    "willHelp" : true 
+}
+
+
