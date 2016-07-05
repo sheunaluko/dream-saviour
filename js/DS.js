@@ -5,6 +5,8 @@ File for defining dream saviours state
 
 
 this.DS = {
-    "cmdInteracting" : false 
-
+    "state" : {
+	"name" : "default" , 
+	"data" : null 
+    } 
 } 

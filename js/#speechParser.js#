@@ -15,13 +15,27 @@ speechParser.parse = function(text) {
 	return 
     } 
 
-    switch (DS.state) {
+    switch (DS.state.name) {
 
 	case "inputDream" : { 
-	    
+	    if (speechCommands[text] ) {
+		/*such a command exists, lets call it! */
+		//this.log(speechCommands[text]) 
+		this.log("found command: " + text) 
+		speechCommands[text]() ;
+            } else {
+		msg = "command unrecognized"
+		recognition.speak({msg}) 
+            } 
 
         } 
 
+
+	case "editingField" : {
+
+
+
+        } 
 
 	case "default" :  {
 	    /*attempt to find cmd in the speechCommands object*/
