@@ -15,7 +15,7 @@ speechParser.parse = function(text) {
 	return 
     } 
 
-    switch (DS.state) {
+    switch (DS.state.name) {
 
 	case "inputDream" : { 
 	    

@@ -29,4 +29,5 @@ function newDream() {
     
     toRender = renderer.createInputForm(dreamCharacteristics)
     renderer.render( {toRender} ) 
+    dreamHelper.start() 
 }

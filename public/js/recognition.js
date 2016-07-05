@@ -17,6 +17,7 @@ recognition.log = function(m) { util.log("recognition" , m) }
 
 recognition.onstart = function() {
     this.log("Recognition started");
+    this.continuous = true 
 };
 
 recognition.onend = function() {
