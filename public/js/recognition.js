@@ -65,9 +65,9 @@ var sayit = function ()
 {
 
     var msg = new SpeechSynthesisUtterance();
-    var voices = speechSynthesis.getVoices() /*femal uk*/
-    msg.default = false 
-    msg.voice = voices[2]
+    //var voices = speechSynthesis.getVoices()
+    msg.voiceURI = "Google UK English Female"
+
     msg.onstart = function (t) {
         console.log("[speech]~> started: " + t.utterance.text)
     };
