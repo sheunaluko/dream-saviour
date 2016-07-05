@@ -1,0 +1,91 @@
+/*
+Mon Jul  4 16:20:10 PDT 2016
+module for text to speech facility AND speech recognition 
+
+MOST IMPORTANT (EXPORTING OF MODULE) @end of file 
+
+*/
+
+//configure speechModule object
+//its import to include this. or else main.js will not be able to find the module 
+
+this.recognition = new webkitSpeechRecognition()
+
+recognition.continuous = true;   
+recognition.interimResults = false;  
+
+
+recognition.onstart = function() {
+    console.log("[webspeech]~> WebSpeechModule started");
+};
+
+recognition.onend = function() {
+    if (recognition.continuous) { 
+	recognition.continuous = true 
+	recognition.start() 
+    } else {
+	//do nuttin 
+	console.log("exiting") 
+    }
+}
+
+recognition.end = function () {
+    console.log("[webspeech]~> WebSpeechModule ended")
+    recognition.continuous = false 
+    recognition.stop() 
+} 
+
+recognition.onresult = function(event) {
+    //console.log("[webspeech]~> Here is returned event:");	    
+
+    if (typeof(event.results) === 'undefined') {
+	recognition.stop();
+	console.log("[webspeech]~> Result undefined!");	
+        return;
+    }
+
+    for (var i = event.resultIndex; i < event.results.length; ++i) {      
+        if (event.results[i].isFinal) { 
+	    //final results are here
+	    let result = event.results[i][0].transcript
+	    console.log("[webspeech]~> Result was: " + result)
+        } else {   
+	    //interim results are here
+            console.log("[webspeech]~> Interim result was: " + event.results[i][0].transcript);	    
+        } 
+    } 
+}; 
+
+
+
+//text to speech 
+function speak(text, callback) {
+    var u = new SpeechSynthesisUtterance();
+    u.text = text;
+    u.lang = 'en-US';
+ 
+    u.onend = function () {
+        if (callback) {
+            callback();
+        }
+    };
+ 
+    u.onerror = function (e) {
+        if (callback) {
+            callback(e);
+        }
+    };
+ 
+    speechSynthesis.speak(u);
+}
+
+recognition.speak = speak 
+
+
+
+
+
+
+
+
+

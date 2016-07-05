@@ -11,8 +11,21 @@ function loaderLog(msg){
 Define dependencies. Dependencies must reside in /js/
 */ 
 const dependencies = [
-    "util",
+    "DS", 
+    "DSresources",
+    "speechCommands",
+    "speechParser",
+    "renderer" , 
+    "dreamCharacteristics",
 ] 
+
+
+/*listen for dependencies loaded event and then run the main function*/
+function onDependenciesLoaded(){
+    loaderLog("All dependencies loaded")
+    loadFile("main") 
+}
+this.addEventListener("dependenciesLoaded" , onDependenciesLoaded) ; 
 
 
 function loadFile (filename) {
@@ -33,13 +46,17 @@ function loadFile (filename) {
 var loadedEvent = new Event("dependenciesLoaded") 
 function isLoaded(filename) { return this[filename] } ; 
 function checkLoaded(dependencies) { 
-    /*converts array of deps into array of bools corresponding to load status*/
-    const loadArray = dependencies.map(isLoaded) 
+    /*converts array of deps into array of bools corresponding to load status*/   
+  //  loaderLog(dependencies) 
+    var loadArray = dependencies.map(isLoaded) 
+//    loaderLog(loadArray) 
     /*checks if all are loaded*/
     return loadArray.every((el)=>{return el}) 
 } 
 /*Recursively calls itself until all files are loaded and then fires dependencies loaded event*/
 function waitForDependencies(dependencies, maxTries, callNum){
+
+
     if (checkLoaded(dependencies)){ 
 	this.dispatchEvent(loadedEvent);
 	return 
@@ -53,18 +70,23 @@ function waitForDependencies(dependencies, maxTries, callNum){
 }
 
 function loadFiles(dependencies) {
-    dependencies.map(loadFile) ; 
-    waitForDependencies(dependencies,10,0) ; 
+
+    if (dependencies.length == 0 ) {
+	this.dispatchEvent(loadedEvent) 
+        return 
+    } else {
+	dependencies.map(loadFile) ; 
+	waitForDependencies(dependencies,10,0) ; 
+    } 
 } 
 
 /*loading files*/
 loadFiles(dependencies) 
 
 
-/*listen for dependencies loaded event and then run the main function*/
-function onDependenciesLoaded(){
-    loaderLog("All dependencies loaded")
-    loadFile("main") 
-    
-}
-this.addEventListener("dependenciesLoaded" , onDependenciesLoaded) ; 
+/*allow global access to some functionalities */
+this.loadFile = loadFile 
+
+
+
+
