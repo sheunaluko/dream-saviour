@@ -60,16 +60,61 @@ recognition.onresult = function(event) {
 }; 
 
 
+
+
+
+
+
+recognition.findVoice = function(URI) {
+
+    var voices = speechSynthesis.getVoices() 
+//    console.log(voices) 
+    for (i in voices) {
+	var voice  = voices[i].voiceURI
+//	console.log(voice)
+	if (URI == voice) {
+	    this.log("Found voice: " + URI)
+	    return i
+        }
+
+    }
+
+    this.log("Voice not found: " + URI)
+    return false 
+}
+
+recognition.voiceOrder = ["Google UK English Female" , "Google US English" , "Google UK English Male"  ] 
+recognition.useVoice = null 
+
+recognition.selectVoice = function() {
+    for (i in recognition.voiceOrder ) {
+	if (recognition.findVoice ( recognition.voiceOrder[i]) ){
+	  /*so we found a voice that was in our list!*/
+	    recognition.voiceIndex = i
+	    return 
+	}
+   } 
+
+   /*no voices matched!*/
+   recognition.log("No voices matched") 
+   
+}
+
+
+
 /*first we define a simple speaker function*/
 var sayit = function ()
 {
 
     var msg = new SpeechSynthesisUtterance();
     //var voices = speechSynthesis.getVoices()
-    msg.voiceURI = "Google UK English Female"
+    recognition.selectVoice() 
+    var voice = speechSynthesis.getVoices()[recognition.voiceIndex] 
+    msg.voice = voice
 
     msg.onstart = function (t) {
         console.log("[speech]~> started: " + t.utterance.text)
+        console.log("[speech]~> voice: " + voice.voiceURI)
     };
     msg.onend = function() {
         console.log('[speech]~> ended')
@@ -142,12 +187,14 @@ recognition.speak = function ({msg})
 
 
 
+
+/*not for the tts stuff*/
 /*
-call speech voices once to change default voice 
+call getVoices once because for some reason the first call returns empty array!? 
 */
 recognition.initVoices = function() {
 //    this.log("Preparing voice")
     speechSynthesis.getVoices() 
 }
-
 recognition.initVoices() 
+
