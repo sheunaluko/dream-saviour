@@ -17,6 +17,7 @@ const dependencies = [
     "speechParser",
     "renderer" , 
     "dreamCharacteristics",
+    "dreamHelper" 
 ] 
 
 

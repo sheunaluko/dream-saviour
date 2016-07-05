@@ -1,6 +1,9 @@
-@echo off
 google-chrome "127.0.0.1:8000/public" & 
+echo "+-+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+"
+echo "|W|e|l|c|o|m|e| |T|o| |D|r|e|a|m| |S|a|v|i|o|r|"
+echo "+-+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+"
+echo  Type Control+C to exit...
 python -m SimpleHTTPServer 
-echo Type Control+C twice to exit...
+
 
 
