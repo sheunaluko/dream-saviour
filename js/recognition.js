@@ -11,7 +11,7 @@ module for text to speech facility AND speech recognition
 recognition = new webkitSpeechRecognition()
 
 recognition.continuous = true;   
-recognition.interimResults = false;  
+recognition.interimResults = true;  
 
 recognition.log = function(m) { util.log("recognition" , m) } 
 
@@ -55,11 +55,10 @@ recognition.onresult = function(event) {
 	    } 
         } else {   
 	    //interim results are here
-            this.log("Interim result was: " + event.results[i][0].transcript);	    
+	    recognition.giveFeedback("Processing...") 
         } 
     } 
 }; 
-
 
 
 recognition.giveFeedback = function(result) {
