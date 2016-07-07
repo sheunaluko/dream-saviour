@@ -92,6 +92,18 @@ quit (to throw away all data) and end dream input
 */
 dreamHelper.parseInput = function(rawText) {
 
+    if (rawText == "are you there") {
+	var msg = "yes"
+        recognition.speak({msg})
+	/*respeak query*/
+	setTimeout( function() { 
+	    var msg = dreamHelper.currentCharacteristic.query
+	    if (msg) { recognition.speak({msg}) } 
+	   } , 1000)
+	return
+    } 
+
+
     var words = text.split(" ")
     if( words.length < 3 ) {
 	/*we only apply filter if 1 or 2 words present (user is giving a command) */

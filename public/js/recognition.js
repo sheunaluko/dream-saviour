@@ -47,11 +47,11 @@ recognition.onresult = function(event) {
     for (var i = event.resultIndex; i < event.results.length; ++i) {      
         if (event.results[i].isFinal) { 
 	    //final results are here
-	    let result = event.results[i][0].transcript
+	    let result = event.results[i][0].transcript.trim().toLowerCase()
 	    this.log("Result was: " + result)
 	    recognition.giveFeedback(result) 
 	    if (speechParser) { 
-		speechParser.parse(result.trim())
+		speechParser.parse(result)
 	    } 
         } else {   
 	    //interim results are here

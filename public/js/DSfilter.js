@@ -9,8 +9,8 @@ this.DSfilter = {
 }
 
 var filter = {
-    "dream" : ["Drake"] , 
-    "new dream" : ["nutrient" , "New Jersey" , "blue dream"] , 
+    "dream" : ["drake"] , 
+    "new dream" : ["nutrient" , "new jersey" , "blue dream", "museum"] , 
 } 
 
 
