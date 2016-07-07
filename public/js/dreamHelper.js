@@ -67,7 +67,8 @@ dreamHelper.processCharacteristic = function(characteristic) {
 		branchObj[option] = opt_function 
 	    }
 	    /*now we set the default case*/
-	    var msg = characteristic.options.join(" or ")
+	    var toSay = characteristic.options.join(" or ")
+	    var msg = "Please say " + toSay 
 	    branchObj.defaultContinue = function(){recognition.speak({msg})} 			
 
 	    /*launch the branch point!*/
