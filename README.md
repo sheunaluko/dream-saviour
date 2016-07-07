@@ -9,7 +9,7 @@
 
  `python -m SimpleHTTPServer` 
 
-Finally open google chrome browser and go to the URL "localhost:8000/public". You may need to allow access to your microphone, and if everything is set up correctly you should see a red circle next to the title of the browser tab.  
+Finally open google chrome browser and go to the URL "localhost:8000/public". You may need to allow access to your microphone, and if everything is set up correctly you should see a red circle next to the title of the browser tab. Suggestions, questions, and potential collaborations are welcome and appreciated! Please send them too dreamsaviourinfo@gmail.com. 
 
 Sweet dreams! 
 
