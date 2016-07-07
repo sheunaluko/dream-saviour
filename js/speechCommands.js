@@ -4,9 +4,9 @@ File for defining the speech commands and their respective actions
 */ 
 
 this.speechCommands = {
-
+    /*REMEMBER TO USE ALL LOWER CASE IN SPEECH COMMANDS!*/
     "are you there" : function() { recognition.speak({"msg" :"yes"}) } , 
-    "what do I do" : function() { 
+    "what do i do" : function() { 
 	recognition.speak({"msg" : DSresources["help"]}) 
 	speechParser.branchOnInput( 
 	    { 

@@ -91,7 +91,7 @@ finish (to  indicate that user is done with given characteristic)
 quit (to throw away all data) and end dream input 
 */
 dreamHelper.parseInput = function(rawText) {
-
+    /*REMEMBER TO USE ALL LOWER CASE IN SPEECH COMMANDS!*/
     if (rawText == "are you there") {
 	var msg = "yes"
         recognition.speak({msg})
