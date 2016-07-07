@@ -6,7 +6,13 @@ File for parsing the user input and figuring out what to do with it
 this.speechParser = {} 
 speechParser.log = function(msg) { util.log("speechParser" , msg) } 
 
-speechParser.parse = function(text) { 
+speechParser.parse = function(rawText) { 
+
+    text = speechParser.filter({"text":rawText, "filterDict" : DSfilter});
+    speechParser.log("Parsing input: " + text)
+    if (true) { 
+	speechParser.log(rawText + " filtered to: " + text)
+    }
 
     /*check if we are processing branch*/
     if ( DS.branchOnInput ) { 
@@ -18,8 +24,8 @@ speechParser.parse = function(text) {
     switch (DS.state.name) {
 
 	case "inputDream" : { 
-	    
-
+	    dreamHelper.parseInput(text) 
+	    break; 
         } 
 
 
@@ -33,12 +39,27 @@ speechParser.parse = function(text) {
 		speechCommands[text]() ;
             } else {
 		msg = "command unrecognized"
-		recognition.speak({msg}) 
+		//recognition.speak({msg}) 
             } 
+    	    break; 
 	} 
     }
     
 } 
+
+
+speechParser.filter = function({text, filterDict}){
+    /*loop through filterDict*/
+    for (alternative in filterDict) {
+	let correctWord = filterDict[alternative] 
+	//this.log("Looking for: " + alternative)
+	//this.log(alternative == "New Jersey")      /*log statements for debug*/
+	/*apply the filter to the text*/
+	text = text.replace( (new RegExp(alternative)) , correctWord)
+    } 
+    return text
+}
+
 
 /*Following function allows external code to give the parser some code to run depending on what the user says. A decision tree is provided and the code corresonding to what is said will be run. For example, this can be used to respond to a yes/ no question, by providing the code corresponding to the "yes" , "no" , and "default" keys of the decision tree dictionary*/
 speechParser.branchOnInput = function( decisionTree ) {

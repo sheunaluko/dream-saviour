@@ -4,14 +4,39 @@
   <link rel="import" href="renderingTemplates.html"> 
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
+  <style>
+    #header {
+	display : flex ; 
+	width: 100%;
+	
+    } 
+    #titleInfo {
+	width : 40%;
+	padding-right : 10% ; 
+    }
+   #feedbackContainer {
+	width : 40%;
+	padding-right : 10% ; 
+
+    }
+
+  </style>
 </head>
 
 <body>
-    <h1>Dream-saviour v0.1</h1>
-    <p>Say "new dream" to get started, or "what do I do" for help.</p> 
-    <hr> 
-  <div id="app">
+  <div id="header">
+    <div id="titleInfo">
+      <h1>Dream-saviour v0.1</h1>
+      <p>Say "new dream" to get started, or "what do I do" for help.</p> 
+    </div>
+    <div id="feedbackContainer">
+	<h1>Did you just say:</h1>
+	<input type="text" id="feedback" value="Nothing yet.."></input>
+    </div> 
   </div>
+
+  <hr>
+  <div id="app"> </div>
 
 </body>
  <script type="text/javascript" src="js/util.js"></script>

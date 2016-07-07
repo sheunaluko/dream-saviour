@@ -1,0 +1,15 @@
+/*
+Wed Jul  6 04:12:51 PDT 2016
+This file defines filters that are applied to text that the user says before it is processed at all by DS
+*/
+
+
+this.DSfilter = {
+
+
+
+
+
+}
+
+
