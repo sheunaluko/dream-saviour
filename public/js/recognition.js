@@ -86,7 +86,7 @@ recognition.findVoice = function(URI) {
     return false 
 }
 
-recognition.voiceOrder = ["Google UK English Female" , "Google US English" , "Google UK English Male"  ] 
+recognition.voiceOrder = ["Google UK English Female" , "Google US English" , "Google UK English Male" ,"Chrome OS UK English" , "Chrome OS US English" ] 
 recognition.useVoice = null 
 
 recognition.selectVoice = function() {
