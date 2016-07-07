@@ -10,7 +10,9 @@ this.dreamHelperFilter = {
 } 
 
 var filter = {
-    "finish" : ["Spanish"] , 
+    "finish" : ["spanish"] , 
+    "quit" : ["quick"] , 
+    "new"  : ["you" , "knew" ] , 
 
 } 
 
