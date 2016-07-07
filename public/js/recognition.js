@@ -49,6 +49,7 @@ recognition.onresult = function(event) {
 	    //final results are here
 	    let result = event.results[i][0].transcript
 	    this.log("Result was: " + result)
+	    recognition.giveFeedback(result) 
 	    if (speechParser) { 
 		speechParser.parse(result.trim())
 	    } 
@@ -61,7 +62,10 @@ recognition.onresult = function(event) {
 
 
 
-
+recognition.giveFeedback = function(result) {
+    var el = document.getElementById("feedback") 
+    el.value = result 
+}
 
 
 
