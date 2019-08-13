@@ -5,7 +5,7 @@
 
   Ensure that your microphone or computer is as close to you as possible and turn up the gain as much as you can. Remember to be patient and you will get better at using the voice recognition tool. The easiest way to get started is to go the the following url: https://sheunaluko.github.io/dream-saviour. Make sure you are using chrome browser, allow access to the mic, your volume is on, and that you are using a laptop or desktop computer rather than your smartphone (not yet supported). Happy awakenings!
   
-  Suggestions, questions, and potential collaborations are welcome and appreciated! Please send them too dreamsaviourinfo@gmail.com. 
+  Suggestions, questions, and potential collaborations are welcome and appreciated! Please send them too oluwa@stanford.edu
   
   If you want to see the source code and run dream-saviour on your own machine, then click on the green button in the upper right corner to clone or download the project to your preffered location. If you are unfamiliar with git, it may be better to download and extract the zip file. Then open a terminal (or command prompt in windows), go to the directory that you chose, and run the command:
 
