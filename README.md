@@ -1,4 +1,9 @@
-# dream-saviour
+# dream-saviour 
+
+> NOTE: Please see the updated and modern version (DreamCatcher) [HERE](https://thedreamcatchersite.web.app) , which is part of the [React App Builder repo](https://github.com/sheunaluko/react_app_builder). This repository and the information below is left here for historical purposes as it was my first attempt to build a dream recording app! 
+
+<br/> <br/>  
+
 ![Alt text](/img/DSimage.png?raw=true )
 
   Dream-saviour is a simple web application to help you record your dreams. It is often frustrating to sit up in bed in order to write down your dreams, so dream-saviour allows you to record your dreams using your voice immediately after you wake up--without even moving! In fact, since you do not move, you will be more able to recall your dreams, and your chances of a wake-iniatied lucid dream will increase. 
